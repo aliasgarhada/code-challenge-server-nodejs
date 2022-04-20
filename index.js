@@ -9,13 +9,13 @@ const service = new TemperatureService()
 app.use(cors());
 
 app.get('/temperature/:id', (req, res) => {
-   service.getTemperature(req.params.id).then(result=>res.send(result)).catch(error=>res.status(500).send(error))
- });
+    service.getTemperature(req.params.id).then(result => res.send(result)).catch(error => res.status(500).send(error))
+});
 
 app.get('/temperature', (req, res) => {
-    service.getAllTemperatures().then(result=>res.send(result)).catch(error=>res.status(500).send(error))
+    service.getAllTemperatures().then(result => res.send(result)).catch(error => res.status(500).send(error))
 });
 
 app.listen(port, () => {
-  console.log(`SensorTech server at http://localhost:${port}`);
+    console.log(`SensorTech server at http://localhost:${port}`);
 });

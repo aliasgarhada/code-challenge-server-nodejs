@@ -22,8 +22,8 @@ describe('test getTemperature', () => {
 
     test('service url not reachable', async () => {
         const service = new TemperatureService()
-        jest.spyOn(service,'getServiceUrl').mockReturnValue('https://blah-blah-url-invalid.com')
-        await expect(async()=> service.getTemperature('2')).rejects.toThrow('request to https://blah-blah-url-invalid.com/ failed, reason: getaddrinfo ENOTFOUND blah-blah-url-invalid.com')
+        jest.spyOn(service, 'getServiceUrl').mockReturnValue('https://blah-blah-url-invalid.com')
+        await expect(async () => service.getTemperature('2')).rejects.toThrow('request to https://blah-blah-url-invalid.com/ failed, reason: getaddrinfo ENOTFOUND blah-blah-url-invalid.com')
     })
 })
 
