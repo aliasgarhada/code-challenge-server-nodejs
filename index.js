@@ -1,18 +1,19 @@
 const express = require('express');
-const fetch = require('node-fetch');
 const cors = require('cors');
+const TemperatureService = require("./Service/TemperatureService");
 
 const app = express();
 const port = 8081;
+const service = new TemperatureService()
 
 app.use(cors());
 
 app.get('/temperature/:id', (req, res) => {
-  fetch(
-    `https://temperature-sensor-service.herokuapp.com/sensor/${req.params.id}`
-  )
-    .then((response) => response.json())
-    .then((response) => res.send(response));
+   service.getTemperature(req.params.id).then(result=>res.send(result)).catch(error=>res.status(500).send(error))
+ });
+
+app.get('/temperature', (req, res) => {
+    service.getAllTemperatures().then(result=>res.send(result)).catch(error=>res.status(500).send(error))
 });
 
 app.listen(port, () => {
