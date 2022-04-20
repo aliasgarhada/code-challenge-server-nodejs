@@ -18,7 +18,7 @@ Please refer to the provided document for the code challenge requirements.
 - Error throw in case of service URL reachability issues
 - Added test cases for basic success, failure and validation scenarios.
 
-# todo
+## todo
 
 - Custom response code based on failure can be added like 400, 401 and 500
 - Authentication can be added
